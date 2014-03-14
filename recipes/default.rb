@@ -20,7 +20,7 @@
 executable_path = "#{node['wp-cli']['path']}/#{node['wp-cli']['executable']}"
 
 remote_file executable_path do
-  source "https://github.com/wp-cli/wp-cli/releases/download/v#{node['wp-cli']['version']}/wp-cli.phar"
+  source "https://github.com/wp-cli/wp-cli/releases/download/v#{node['wp-cli']['version']}/wp-cli-#{node['wp-cli']['version']}.phar"
   not_if "test -f #{executable_path}"
   notifies :run, "execute[make-binary-executable]", :immediately
 end
