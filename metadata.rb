@@ -1,3 +1,4 @@
+name             "wp-cli"
 maintainer       "James Hu"
 maintainer_email "hello@james.hu"
 license          "Apache 2.0"
@@ -7,6 +8,5 @@ version          "1.0.2"
 
 recipe "default", "Installs wp-cli"
 
-%w{ubuntu debian}.each do |os|
-  supports os
-end
+supports "ubuntu"
+supports "debian"
