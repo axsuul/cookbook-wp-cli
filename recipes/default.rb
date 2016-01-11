@@ -18,9 +18,15 @@
 #
 
 executable_path = "#{node['wp-cli']['path']}/#{node['wp-cli']['executable']}"
+source_url =
+  if node['wp-cli']['version'] == "latest"
+    "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
+  else
+    "https://github.com/wp-cli/wp-cli/releases/download/v#{node['wp-cli']['version']}/wp-cli-#{node['wp-cli']['version']}.phar"
+  end
 
 remote_file executable_path do
-  source "https://github.com/wp-cli/wp-cli/releases/download/v#{node['wp-cli']['version']}/wp-cli-#{node['wp-cli']['version']}.phar"
+  source source_url
   owner node['wp-cli']['user']
   group node['wp-cli']['group']
   mode node['wp-cli']['mode']

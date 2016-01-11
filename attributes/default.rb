@@ -1,4 +1,4 @@
-default['wp-cli']['version'] = "0.13.0"
+default['wp-cli']['version'] = "latest"
 default['wp-cli']['path'] = "/usr/bin"
 default['wp-cli']['executable'] = "wp"
 default['wp-cli']['user'] = "root"
